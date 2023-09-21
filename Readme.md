@@ -1,6 +1,6 @@
 # Todo App
 
-![Website Image](ToDo-App.png)
+![Website Image](ToDo-App.jpg)
 
 This is a simple Todo App built using Flask, Python, and SQLAlchemy.
 It allows users to manage their tasks with the following features:
