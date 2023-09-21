@@ -1,0 +1,3 @@
+FLASK_APP=app.py
+FLASK_ENV=devlopment
+FLASK_DEBUG=1

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}
+      {% endblock title %} 
+    </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"/> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/> 
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/> 
+  </head>
+  <body>
+            
+  </body>
+</html>
+{% block body %}
+  
+{% endblock body %}
+{% block register %}
+    
+{% endblock register %}
+{% block login %}
+    
+{% endblock login %}
+{% block update %}
+{% endblock update %}
+{% block select %}
+  
+{% endblock select %}

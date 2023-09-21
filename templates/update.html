@@ -1,0 +1,15 @@
+{% extends 'base2.html' %}
+{% block update %}
+    
+<div class="main">
+  <form class="update__todo"  action="/update/{{todo.id}}" method="POST">
+    <h2 class="main__heading">Update Your Todo </h2>
+    <div class="InputContainer">
+      <input type="text" required="" class="update--input" name="title" id="title" name="title" value="{{todo.title}}"aria-describedby="emailHelp">
+    </div>
+    
+    <button type="submit" class="todo--button" >Update</button>
+  </form>
+  </div>
+
+  {% endblock update %}

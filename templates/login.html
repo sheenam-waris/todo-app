@@ -1,0 +1,36 @@
+{% extends 'base2.html' %}
+{% block title %}
+Login Todo App
+{% endblock title %} 
+{% block login %}
+
+<div class="container">
+    <form method="POST" class="form">
+        <div class="heading">Sign in</div> 
+        <span class="subtitle">Get started with my TODO app and enjoy the experience.</span>    
+          <input autocomplete="off"   type="email" class="input" name="email"  placeholder="name@example.com">
+          
+          <input type="password"  name="password"class="input" placeholder="Password">
+
+          <p class="account">Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert alert-{{category}} mt-3" style=" font-size: 12px; padding: 0px; margin: 0 ;">
+                <ul style="list-style-type: none; padding: 0;">
+                    {% for category, message in messages %}
+                        <li class="alert alert-{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}    
+      <button class="login-button" type="submit">Sign In</button>
+      </form>
+      </div>
+
+      
+  
+
+{% endblock login %}
+
+    

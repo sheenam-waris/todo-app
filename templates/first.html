@@ -1,0 +1,80 @@
+{% extends 'base2.html' %}
+{% block title %}
+{% endblock title %}
+{% block body %}
+
+
+<main class="main">
+  <a href="{{ url_for('logout') }}" class="logout"><img src="{{ url_for('static', filename='css/icons8-logout-48.png')}}"></a>
+  <h2 class="main__heading">My TODO'S <img src="{{ url_for('static', filename='css/icons8-checklist-53.png')}}"></h2> 
+  <div class="add__todo">
+      <form method="POST">
+        <div class="InputContainer"> 
+            <input type="text" name="title" required="" id="title" class="todo--input" name="title" placeholder="Add new task..." aria-describedby="emailHelp">
+        </div> 
+        <!-- <div class="add__todo">
+          <label for="desc" class="">Todo Description</label>
+          <input type="text" name="desc" class="" id="desc" name="desc">
+        </div> -->
+        <button type="submit" class="todo--button">ADD</button>
+      </form>
+    </div><!------add todo form end ------>
+    <h3 id="today--task">Today's Task</h3>
+{% if  allTodo|length==0 %}
+<div style="font-size: 0.6rem; color: gray; padding-left: 5px;" role="alert">
+No task For today. Please add a task
+</div>
+{% else %}
+
+<div class="todo__list">
+  <ul class="list--container">
+    {% for todo in allTodo %}
+    <li class="list--item">
+          <input {% if todo.completed %}checked{% endif %} value="{{ todo.id }}" name="r" type="checkbox" id="checkbox-{{ todo.id }}" class="todo-checkbox">
+          <span id="title-{{ todo.id }}" class="todo__title {% if todo.completed %}completed{% endif %}">{{ todo.title }}</span>
+          <a href="/update/{{ todo.id }}" type="button" class="list__link--edit {% if todo.completed %}editButton{% endif %}">
+              <img src="{{ url_for('static', filename='css/icons8-edit-48.png') }}">
+          </a>
+          <a href="/delete/{{ todo.id }}" type="button" class="list__link--del delete-button">
+              <img src="{{ url_for('static', filename='css/icons8-delete-48.png') }}">
+          </a>
+    </li>
+     {% endfor %}
+  </ul>
+
+
+    {% endif %}
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+    
+    {% endblock body %}
+
+  
+   
+  <!-- <table class="" >
+      <thead class="">
+        <tr>
+          <th scope="col">Sno</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for todo in allTodo %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{todo.title}}</td>
+        <td>{{todo.desc}}</td>
+        <td>{{todo.time}}</td>
+        <td>
+        <a href="/update/{{todo.id}}" type="button"class="">Update</a>
+        <a href="/delete/{{todo.id}}" type="button"class="">Delete</a></td>
+      </tr>
+      {% endfor %}
+       
+      </tbody>
+    </table> -->
